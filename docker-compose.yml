@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_USER: taller_user
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: taller_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: .
+    container_name: fastapi_app
+    restart: always
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgresql://taller_user:123456@db:5432/taller_db
+    ports:
+      - "8001:8000"
+
+volumes:
+  pgdata:

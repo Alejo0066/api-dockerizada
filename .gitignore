@@ -1,0 +1,18 @@
+# Ignorar entornos virtuales y dependencias innecesarias
+venv/
+api-env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos sensibles
+.env
+.env.local
+
+# Docker
+docker-data/
+
+# Configuración de editores de código
+.vscode/
+.idea/
