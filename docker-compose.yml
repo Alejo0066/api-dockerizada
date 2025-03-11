@@ -21,7 +21,7 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URL: postgresql://taller_user:123456@db:5432/taller_db
+      DATABASE_URL: postgresql://taller_user:123456@postgres_db:5432/taller_db
     ports:
       - "8001:8000"
 
